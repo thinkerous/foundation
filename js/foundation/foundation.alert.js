@@ -23,7 +23,7 @@
   Foundation.libs.alert = {
     name : 'alert',
 
-    version : '5.1.1',
+    version : '5.2.1',
 
     settings : {
       animation: 'fadeOut',
@@ -45,7 +45,7 @@
 
         e.preventDefault();
         alertBox[settings.animation](settings.speed, function () {
-          S(this).trigger('closed').remove();
+          S(this).trigger('close').remove();
           settings.callback();
         });
       });

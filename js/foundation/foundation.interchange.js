@@ -23,7 +23,7 @@
   Foundation.libs.interchange = {
     name : 'interchange',
 
-    version : '5.2.0',
+    version : '5.2.1',
 
     cache : {},
 
@@ -34,7 +34,7 @@
       load_attr : 'interchange',
 
       named_queries : {
-        'default' : Foundation.media_queries.small,
+        'default' : 'only screen',
         small : Foundation.media_queries.small,
         medium : Foundation.media_queries.medium,
         large : Foundation.media_queries.large,
@@ -77,9 +77,9 @@
           if (last_path == path) return;
 
 
-          var regex = "/^.(\.jpg|\.jpeg|\.png|\.gif|\.tiff|\.bmp)\??|#?./";
+          var image_regex = /\.(gif|jpg|jpeg|tiff|png)([?#].*)?/i;
 
-          if (new RegExp(regex,'i').test(path)){
+          if (image_regex.test(path)){
 
               $(el).css('background-image', 'url('+path+')');
               el.data('interchange-last-path', path);
@@ -106,7 +106,7 @@
       this.load('nodes');
     },
 
-    getMediaHash : function() {
+    get_media_hash : function() {
         var mediaHash='';
         for (var queryName in this.settings.named_queries ) {
             mediaHash += matchMedia(this.settings.named_queries[queryName]).matches.toString();
@@ -120,7 +120,7 @@
       $(window)
         .off('.interchange')
         .on('resize.fndtn.interchange', self.throttle(function () {
-            var currMediaHash = self.getMediaHash();
+            var currMediaHash = self.get_media_hash();
             if (currMediaHash !== prevMediaHash) {
                 self.resize();
             }
@@ -227,8 +227,6 @@
           data_attr = this.data_attr;
 
       this.cached_nodes = [];
-      // Set nodes_loaded to true if there are no nodes
-      // this.nodes_loaded = false;
       this.nodes_loaded = (count === 0);
 
 
@@ -296,20 +294,8 @@
       return this.store(el, scenarios);
     },
 
-    uuid : function (separator) {
-      var delim = separator || "-",
-          self = this;
-
-      function S4() {
-        return self.random_str(6);
-      }
-
-      return (S4() + S4() + delim + S4() + delim + S4()
-        + delim + S4() + delim + S4() + S4() + S4());
-    },
-
     store : function (el, scenarios) {
-      var uuid = this.uuid(),
+      var uuid = this.random_str(),
           current_uuid = el.data(this.add_namespace('uuid', true));
 
       if (this.cache[current_uuid]) return this.cache[current_uuid];
