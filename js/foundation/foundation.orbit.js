@@ -533,4 +533,4 @@
     }
   };
 
-}(jQuery, this, this.document));
+}));
