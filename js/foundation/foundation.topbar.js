@@ -24,7 +24,7 @@
   Foundation.libs.topbar = {
     name : 'topbar',
 
-    version: '5.2.1',
+    version: '5.2.2',
 
     settings : {
       index : 0,
@@ -252,7 +252,7 @@
           return;
         }
 
-        S('[' + self.attr_name() + '] li').removeClass('hover');
+        S('[' + self.attr_name() + '] li.hover').removeClass('hover');
       });
 
       // Go up a level on Click
