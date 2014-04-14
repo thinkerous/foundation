@@ -23,7 +23,7 @@
   Foundation.libs.offcanvas = {
     name : 'offcanvas',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     settings : {},
 

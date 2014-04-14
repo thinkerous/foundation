@@ -1,8 +1,7 @@
 ---
-layout: doc/layouts/default.html
+title: Javascript Utilities
 ---
 
-# Javascript Utilities
 <h3 class="subheader">Foundation includes a handful of helpful Javascript utilities to help you add common functionalities to your apps and plugins.</h3>
 
 ***
@@ -128,7 +127,7 @@ $('.button').on('click', function(e){
 });
 
 // Resize function
-$(document).on('resize', function(e){
+$(window).on('resize', function(e){
   // Do responsive stuff
 });
 ```
@@ -144,7 +143,7 @@ $('.button').on('click', Foundation.utils.debounce(function(e){
 }, 300, true));
 
 // Throttled resize function
-$(document).on('resize', Foundation.utils.throttle(function(e){
+$(window).on('resize', Foundation.utils.throttle(function(e){
   // Do responsive stuff
 }, 300));
 ```
