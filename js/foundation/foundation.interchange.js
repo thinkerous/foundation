@@ -23,7 +23,7 @@
   Foundation.libs.interchange = {
     name : 'interchange',
 
-    version : '5.2.1',
+    version : '5.2.2',
 
     cache : {},
 
@@ -76,14 +76,10 @@
 
           if (last_path == path) return;
 
-
-          var image_regex = /\.(gif|jpg|jpeg|tiff|png)([?#].*)?/i;
-
-          if (image_regex.test(path)){
-
-              $(el).css('background-image', 'url('+path+')');
-              el.data('interchange-last-path', path);
-              return trigger(path);
+          if (/\.(gif|jpg|jpeg|tiff|png)([?#].*)?/i.test(path)) {
+            $(el).css('background-image', 'url('+path+')');
+            el.data('interchange-last-path', path);
+            return trigger(path);
           }
 
           return $.get(path, function (response) {
