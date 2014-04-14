@@ -2,7 +2,7 @@
   "name": "foundation",
   "repository": "thinkerous/foundation",
   "description": "The most advanced responsive front-end framework in the world.",
-  "version": "5.2.1",
+  "version": "5.2.2",
   "dependencies": {
     "components/jquery": "*"
   },
