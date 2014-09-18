@@ -40,7 +40,7 @@ Add a title to the beginning of your list with the `dt` element. Add an `.active
 
 ***
 
-## Customize With Sass
+## Customize with Sass
 
 Sub Navs can be easily customized using our provided Sass variables.
 
@@ -50,7 +50,7 @@ Sub Navs can be easily customized using our provided Sass variables.
 
 ***
 
-## Semantic Markup With Sass
+## Semantic Markup with Sass
 
 You apply Sub Nav styles to semantic markup using Sass mixins.
 
@@ -100,6 +100,31 @@ You can further customize your alert boxes using the provided options in the `su
 ```
 
 **Note:** `rem-calc();` is a function we wrote to convert `px` to `rem`. It is included in **_variables.scss**.
+
+***
+
+<h3>Accessibility</h3>
+
+Use this snippet to make sub-nav more accessible. Adding the role attribute gives context to a screen reader. Using the Tab button, a user can navigate until they've reached the link below. (Use Shift+Tab to navigate back one step.)
+
+<div class="row">
+  <div class="large-6 columns">
+    <h4>SCSS</h4>
+{{#markdown}}
+```scss
+{{> examples_subnav_accessible}}
+```
+{{/markdown}}
+  </div>
+  <div class="large-6 columns">
+    <h4>HTML</h4>
+
+{{> examples_subnav_accessible_rendered}}
+
+  </div>
+</div>
+
+**Note:** It is bad practice to leave links that do not go anywhere on your live site. Use something like foo.html to fill them as you build.
 
 ***
 

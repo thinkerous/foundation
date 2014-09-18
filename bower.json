@@ -1,8 +1,9 @@
 {
   "name": "foundation",
-  "version": "5.2.2",
+  "version": "{{VERSION}}",
   "main": [
     "css/foundation.css",
+    "css/foundation.css.map",
     "js/foundation.js"
   ],
   "dependencies": {
